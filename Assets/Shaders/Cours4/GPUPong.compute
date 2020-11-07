@@ -8,6 +8,8 @@
 
 #include "input.cginc"
 
+#define PI (3.14159265359)
+
 struct BallData
 {
     float2 pos;
@@ -39,34 +41,22 @@ void CSEvolve (uint3 id : SV_DispatchThreadID)
     if (id.x < _BallDataSize)
     {
         _BallData[id.x].pos += _BallData[id.x].speed * GetDT();
-        if (_BallData[id.x].pos.y > _WorldData[0].worldSize.y)
-        {
-            _BallData[id.x].speed *= -1;
-        }
-        else if (_BallData[id.x].pos.y < -_WorldData[0].worldSize.y)
-        {
-            _BallData[id.x].speed *= -1;
-        }
-        else if (_BallData[id.x].pos.x > _WorldData[0].worldSize.x)
-        {
-            _BallData[id.x].speed *= -1;
-        }
-        else if (_BallData[id.x].pos.x < -_WorldData[0].worldSize.x)
-        {
-            _BallData[id.x].speed *= -1;
-        }
+        bool2 outAndSpeedPlus = _BallData[id.x].pos > _WorldData[0].worldSize && _BallData[id.x].speed > 0;
+        bool2 outAndSpeedMinus = _BallData[id.x].pos < -_WorldData[0].worldSize && _BallData[id.x].speed < 0;
+        _BallData[id.x].speed *= (outAndSpeedPlus || outAndSpeedMinus) ? -1 : 1;
     }
 }
 
 float2 Reflect(float2 direction, float2 normal){return direction - 2*(dot(direction,normal)*normal);}
-
 [numthreads(32,1,1)]
 void CSReset (uint3 id : SV_DispatchThreadID)
 {
     if (id.x < _BallDataSize)
     {
-        _BallData[id.x].pos = float2(id.x * 0.2, 0);
-        _BallData[id.x].speed = float2(0, 1);
+        float angle = id.x * (2 * PI / _BallDataSize);
+        float speed = id.x * (2.0 / _BallDataSize)+1;
+        _BallData[id.x].pos = float2(0, 0);
+        _BallData[id.x].speed = float2(cos(angle), sin(angle)) * speed;
     }
 }
 

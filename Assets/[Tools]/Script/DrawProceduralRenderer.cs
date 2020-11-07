@@ -99,6 +99,7 @@ public class DrawProceduralRenderer : LoadableBehaviour
                 this.RemoveCommandBuffer();
             }
 
+            this.commandBuffer.Clear();
             this.commandBuffer.Release();
             this.commandBuffer = null;
         }
