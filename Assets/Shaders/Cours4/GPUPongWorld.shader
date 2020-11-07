@@ -68,12 +68,33 @@ SubShader
 			const float3 direction2 = float3(0, 0, 1);
 
             const float2 corner = GetCorner(vertexIndex);
-            const float2 quadSize = 1;
-            const float3 localVertexPos = quadSize.x * corner.x * direction0 + 
-                                          quadSize.y * corner.y * direction1;
-            const float3 quadPos = 0;
+			float2 quadSize = 1;
+			float3 localVertexPos = quadSize.x * corner.x * direction0 +
+				quadSize.y * corner.y * direction1;
+			float3 quadPos = 0;
 
-            const float3 vertexPos = localVertexPos + quadPos;
+			if (quadIndex == 0)
+			{
+				quadPos = float3(-_WorldData[0].worldSize.x, 0, 0);
+				quadSize = float2(0.1, 2 * _WorldData[0].worldSize.y);
+			}
+			if (quadIndex == 1)
+			{
+				quadPos = float3(_WorldData[0].worldSize.x, 0, 0);
+				quadSize = float2(0.1, 2 * _WorldData[0].worldSize.y);
+			}
+			if (quadIndex == 2)
+			{
+				quadPos = float3(0, -_WorldData[0].worldSize.y, 0);
+				quadSize = float2(2 * _WorldData[0].worldSize.x, 0.1);
+			}
+			if (quadIndex == 3)
+			{
+				quadPos = float3(0, _WorldData[0].worldSize.y, 0);
+				quadSize = float2(2 * _WorldData[0].worldSize.x, 0.1);
+			}
+
+			const float3 vertexPos = localVertexPos * float3(quadSize, 0) + quadPos;
 
             v2f o;
             o.position = mul(UNITY_MATRIX_MVP, float4(vertexPos, 1));
