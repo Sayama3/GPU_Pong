@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Iannis\old Drive\ICAN (1)\Cours Annee 3\Shader Programming\Cours4" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="[Tools]" t="Include">
+          <e p="Script" t="Include">
+            <e p="AddWorldToLocalMatrix.cs" t="Include" />
+            <e p="CameraEventHandler.cs" t="Include" />
+            <e p="DebugGOMouseMover.cs" t="Include" />
+            <e p="DefaultCameraMover.cs" t="Include" />
+            <e p="DefaultCameraMover.Touch.cs" t="Include" />
+            <e p="DoubleBufferEvolve.cs" t="Include" />
+            <e p="DrawProceduralRenderer.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="RenderCheckCustomInspector.cs" t="Include" />
+              <e p="Texture2DArrayDescriptorCustomInspector.cs" t="Include" />
+            </e>
+            <e p="ExportTimeOfTheDayToShader.cs" t="Include" />
+            <e p="GenericBufferExport.cs" t="Include" />
+            <e p="GlobalShaderKeywordSwitch.cs" t="Include" />
+            <e p="IDebugGOMouseMoverEventReceiver.cs" t="Include" />
+            <e p="InstancingDataExportBuffer.cs" t="Include" />
+            <e p="LightEventHandler.cs" t="Include" />
+            <e p="LoadableBehaviour.cs" t="Include" />
+            <e p="MaterialPropertyBlockAdder.cs" t="Include" />
+            <e p="MeshExportBuffer.cs" t="Include" />
+            <e p="MousePositionToMaterial.cs" t="Include" />
+            <e p="RenderCheck.cs" t="Include" />
+            <e p="Texture2DArrayDescriptor.cs" t="Include" />
+            <e p="ValueSwitcher.cs" t="Include" />
+            <e p="WorldToLocalExportBuffer.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="AllPropertyTypes.shader" t="Include" />
+            <e p="FullScreen.shader" t="Include" />
+            <e p="Include" t="Include">
+              <e p="AntiAliasingUtils.cginc" t="Include" />
+              <e p="Halton.cginc" t="Include" />
+              <e p="Hammersley.cginc" t="Include" />
+              <e p="HSVUtils.cginc" t="Include" />
+              <e p="IcosahedreUtils.cginc" t="Include" />
+              <e p="OctwrapUtils.cginc" t="Include" />
+              <e p="QuaternionUtils.cginc" t="Include" />
+              <e p="snoise.cginc" t="Include" />
+              <e p="wang_hash.cginc" t="Include" />
+            </e>
+            <e p="MinimalDrawProceduralShader.shader" t="Include" />
+            <e p="MinimalGeometryShader.shader" t="Include" />
+            <e p="MinimalHardwareTesselation.shader" t="Include" />
+            <e p="MinimalPBRSurfaceShader.shader" t="Include" />
+            <e p="MinimalShader.shader" t="Include" />
+          </e>
+        </e>
+        <e p="Line" t="Include">
+          <e p="5A.shader" t="Include" />
+          <e p="MultiSamplingAllInOne.shader" t="Include" />
+          <e p="MultiSamplingHalton.shader" t="Include" />
+          <e p="MultiSamplingRegularGrid.shader" t="Include" />
+          <e p="MultiSamplingWangHash.shader" t="Include" />
+          <e p="Naive.shader" t="Include" />
+          <e p="ShowSampling.shader" t="Include" />
+          <e p="TD.shader" t="Include" />
+          <e p="Texture.shader" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="Cours1" t="Include">
+            <e p="Cour1Shader.shader" t="Include" />
+          </e>
+          <e p="Cours3" t="Include">
+            <e p="Cours3.shader" t="Include" />
+          </e>
+          <e p="Cours4" t="Include">
+            <e p="Cours4_DrawBall.shader" t="Include" />
+            <e p="DispatchTest.cs" t="Include" />
+            <e p="DisplayDispatchTest.shader" t="Include" />
+            <e p="FillTexture.compute" t="Include" />
+            <e p="GPUPong.compute" t="Include" />
+            <e p="GPUPong.cs" t="Include" />
+            <e p="GPUPong.shader" t="Include" />
+            <e p="GPUPongWorld.shader" t="Include" />
+            <e p="input.cginc" t="Include" />
+          </e>
+          <e p="Exemples" t="Include">
+            <e p="DigitalClock.shader" t="Include" />
+            <e p="DisplayNumber.shader" t="Include" />
+            <e p="Epicycloid.shader" t="Include" />
+            <e p="NeedleClock.shader" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Cours4.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\ianpo\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ianpo\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Cours4.-1079937275.00" t="ExcludeRecursive" />
+    <e p="C:\Users\ianpo\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
+  </component>
+</project>
