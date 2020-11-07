@@ -1,0 +1,66 @@
+﻿#pragma kernel CSEvolve
+#pragma kernel CSReset
+
+#pragma kernel CSWorldEvolve
+#pragma kernel CSWorldReset
+
+#pragma enable_d3d11_debug_symbols
+
+#include "input.cginc"
+
+struct BallData
+{
+    float2 pos;
+    float2 speed;
+    uint status;
+};
+
+uniform RWStructuredBuffer<BallData> _BallData;
+uniform uint _BallDataSize;
+
+struct WorldData
+{
+    float2 handle0Pos;
+    float2 handle0Size;
+    float2 handle1Pos;
+    float2 handle1Size;
+
+    float2 worldSize;
+
+    uint player0Score;
+    uint player1Score;
+};
+
+uniform RWStructuredBuffer<WorldData> _WorldData;
+
+[numthreads(32,1,1)]
+void CSEvolve (uint3 id : SV_DispatchThreadID)
+{
+    if (id.x < _BallDataSize)
+    {
+        _BallData[id.x].pos += _BallData[id.x].speed * GetDT();
+    }
+}
+
+[numthreads(32,1,1)]
+void CSReset (uint3 id : SV_DispatchThreadID)
+{
+    if (id.x < _BallDataSize)
+    {
+        _BallData[id.x].pos = float2(id.x * 0.2, 0);
+        _BallData[id.x].speed = float2(0, 1);
+    }
+}
+
+[numthreads(1,1,1)]
+void CSWorldEvolve (uint3 id : SV_DispatchThreadID)
+{
+}
+
+[numthreads(1,1,1)]
+void CSWorldReset (uint3 id : SV_DispatchThreadID)
+{
+    _WorldData[0].worldSize = 5;
+    _WorldData[0].player0Score = 0;
+    _WorldData[0].player1Score = 0;
+}

@@ -1,0 +1,25 @@
+﻿#pragma kernel CSFillDisplayTestOutput
+
+// pour indiquer a Unity qu'il faut qu'il garde les symboles de debug.
+// cela facilite la lecture avec RenderDoc mais nuit au perf
+#pragma enable_d3d11_debug_symbols
+
+// c'est une texture "RW" c'est a dire qu'elle est accessible en lecture ET ecriture.
+uniform RWTexture2D<float4> _DispatchTestOutput;
+
+// le nombre de thread par groupe.  
+[numthreads(32,32,1)]
+void CSFillDisplayTestOutput (
+    uint3 id : SV_DispatchThreadID,
+    uint3 groupThreadID : SV_GroupThreadID,
+    uint3 groupID : SV_GroupID)
+{
+    // remplie la texture avec le DispatchThreadID généralement utilisé 
+    _DispatchTestOutput[id.xy] = frac(float4(id.x / (float)255, id.y / (float)255, 1, 1));
+
+    // le numero de thread au sein du groupe
+    //_DispatchTestOutput[id.xy] = frac(float4(groupThreadID.x / (float)32, groupThreadID.y / (float)32, 1, 1));
+
+    // le numéro de groupe
+    //_DispatchTestOutput[id.xy] = frac(float4(groupID.x / (float)10, groupID.y / (float)10, 1, 1));
+}
